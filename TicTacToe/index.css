@@ -1,0 +1,51 @@
+table.juego {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.juego, table.juego th, table.juego td {
+  border: 1px solid #ddd;
+}
+
+table.juego th, table.juego td {
+  text-align: left;
+  padding: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  table.juego, table.juego tbody, table.juego th, table.juego td, table.juego tr {
+    display: block;
+  }
+  
+  /* Ocultar los encabezados de la tabla en pantallas pequeñas */
+  table.juego thead {
+    display: none;
+  }
+  
+  /* Hacer que cada celda se comporte como una fila */
+  table.juego tr {
+    margin-bottom: 10px;
+  }
+  
+  
+  table.juego td {
+  border: 1px solid black; /* Asegura que los bordes de la celda sean visibles */
+  min-width: 200px; /* Establece un ancho mínimo para la celda */
+  min-height: 200px; /* Establece una altura mínima para la celda */
+  padding: 50px; /* Añade algo de espacio alrededor del contenido de la celda */
+  text-align: center; /* Centra el contenido de la celda */
+  vertical-align: middle; /* Alinea verticalmente el contenido en el medio de la celda */
+}
+
+  
+  table.juego td:before {
+    /* Usar los nombres de los encabezados de columna como etiquetas para cada celda */
+    content: attr(data-title);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 8px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

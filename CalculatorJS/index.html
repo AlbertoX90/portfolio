@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='./calculator.js'></script>
+        <link rel="stylesheet" href="./calculator.css">
+    </head>
+    
+    <body>
+        <header>
+        
+        </header>
+        <aside>
+    
+        </aside>
+        
+        <section>
+        
+            <div id='calculadora'>
+                <div id='lcd'>
+                <p id='lcd-value'></p>
+                </div>
+                <table id='teclado'>
+                <tr>
+                <td><button id='7' class='digito'>7</button></td>
+                <td><button id='8' class='digito'>8</button></td>
+                <td><button id='9' class='digito'>9</button></td>
+                <td><button id="suma" class="operador" onclick="seleccionarOperador('+')">+</button>
+                </td>
+                </tr>
+                <tr>
+                <td><button id='4' class='digito'>4</button></td>
+                <td><button id='5' class='digito'>5</button></td>
+                <td><button id='6' class='digito'>6</button></td>
+                <td><button id="resta" class="operador" onclick="seleccionarOperador('-')">-</button>
+                </td>
+                </tr>
+                <tr>
+                <td><button id='1' class='digito'>1</button></td>
+                <td><button id='2' class='digito'>2</button></td>
+                <td><button id='3' class='digito'>3</button></td>
+                <td><button id="producto" class="operador" onclick="seleccionarOperador('*')">*</button>
+                </td>
+                </tr>
+                <tr>
+                <td><button id='0' class='digito'>0</button></td>
+                <td><button id='punto' class='digito'>.</button></td>
+                <td><button id="division" class="operador" onclick="seleccionarOperador('/')">/</button>
+                </td>
+                <td><button id="igual" class="operador" onclick="calcular()">=</button>
+                </td>
+                </tr>
+                </table>
+            </div>
+        </section>
+    </body>
+
+</html>
