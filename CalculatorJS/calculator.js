@@ -3,114 +3,141 @@ window.addEventListener('load', generaEventos);
 var decimal = false;
 var num1 = "";
 var num2 = "";
-var operador = ""; // Cambiado el nombre de la variable para evitar conflicto
-var paso = 1; // Asegurémonos de que la variable paso esté definida correctamente
-
-function generaEventos() {
-    console.log("Evento de carga ejecutado");
-    for (var i = 0; i < 10; i++) {
-        document.getElementById(i).addEventListener("click", digito);   
+var paso = 1;
+var resultado = "";
+var operador;
+/*Pasos de la aplicacion
+Paso 1: Se digita el número 1 y se espera a que se pulse el operador
+Paso 2: Se ha pulsado en un operador y se digita el num2 esperando el igual
+Paso 3: Se ha calculado, se espera o reiniciar o digitar el num2
+*/
+function generaEventos(){
+    //Generamos de forma dinámica los eventos para los botones decimales
+    for(var i = 0; i<10;i++){
+        document.getElementById(i).addEventListener('click',digitarNumero);
     }
-    document.getElementById("punto").addEventListener("click", decimal);
-    document.getElementById("suma").addEventListener("click", seleccionarOperador);
-    document.getElementById("resta").addEventListener("click", seleccionarOperador);
-    document.getElementById("producto").addEventListener("click", seleccionarOperador);
-    document.getElementById("division").addEventListener("click", seleccionarOperador);
-    document.getElementById("igual").addEventListener("click", calcular);
+    //Generamos eventos para los operadores
+    document.getElementById('suma').addEventListener("click",seleccionarOperador);
+    document.getElementById('resta').addEventListener("click",seleccionarOperador);
+    document.getElementById('producto').addEventListener("click",seleccionarOperador);
+    document.getElementById('division').addEventListener("click",seleccionarOperador);
+    //Generamos eventos para el igual y el punto
+    document.getElementById('punto').addEventListener("click",hacerDecimal);
+    document.getElementById("igual").addEventListener("click",calcular);
 }
 
-function decimal() {
-    alert("Pulsado en el punto");
-    console.log("Función decimal ejecutada");
-    if (paso == 1) {
-        if (num1 == "" && decimal == false) {
-            num1 += "0.";
-            decimal = true;
-        } else if (num1 != "" && decimal == false) {
-            num1 += ".";
-            decimal = true;
-        }
-        document.getElementById('lcd-value').innerHTML = num1;
-    } else if (paso == 2) {
-        if (num2 == "" && decimal == false) {
-            num2 += "0.";
-            decimal = true;
-        } else if (num2 != "" && decimal == false) {
-            num2 += ".";
-            decimal = true;
-        }
-        document.getElementById('lcd-value').innerHTML = num2;
-    } else if (paso == 3) {
-        paso = 1;
-        num1 = "0.";
-        num2 = "";
-        operador = ""; // Restablecemos el operador
-        document.getElementById('lcd-value').innerHTML = num1;
+function digitarNumero(){
+    var valor = event.target.innerHTML;
+    if(paso == 1){
+        //Paso 1 y se pulsa en un digito, se digita el num1
+        num1+=""+valor;
+        document.getElementById("lcd-value").innerText = num1;
     }
-}
+    else if(paso == 2){
+        //Paso 2 y se pulsa en un digito, se digita el num2
+        num2+=""+valor;
+        document.getElementById("lcd-value").innerText = num2;
 
-function digito() {
-    alert("Pulsado en el dígito");
-    console.log("Función digito ejecutada");
-    var obj = event.target;
-    var valor = obj.innerHTML;
-    if (paso == 1) {
-        num1 += "" + valor;
-        document.getElementById('lcd-value').innerHTML = num1;
-    } else if (paso == 2) {
-        num2 += valor;
-        document.getElementById('lcd-value').innerHTML = num2;
-    } else if (paso == 3) {
-        paso = 1;
-        num1 = "";
-        num2 = "";
-        document.getElementById('lcd-value').innerHTML = num1;
-        operador = ""; // Restablecemos el operador
     }
-}
-
-function seleccionarOperador() {
-    alert("Pulsado en el operador");
-    console.log("Función seleccionarOperador ejecutada");
-    if (paso == 1 || paso == 3) {
-        // Elegimos operacion y pasamos al paso 2
-        operador = event.target.innerHTML;
+    else{
+        //Paso 3 y se pulsa en un digito, se comienza desde cero
         decimal = false;
-        paso = 2;
+        num1 = valor.toString();
+        num2 = "".toString();
+        paso = 1;
+        document.getElementById("lcd-value").innerText = num1;
     }
 }
 
-function calcular() {
-    alert("Pulsado en el igual");
-    console.log("Función calcular ejecutada");
-    decimal = false;
-    num1 = parseFloat(num1);
-    num2 = parseFloat(num2);
-    if (paso == 2) {
-        switch (operador) {
+function seleccionarOperador(){
+    if(paso == 1){
+        if(decimal == true){
+            num1 = parseFloat(num1);
+        }
+        else{
+            if(num1 == ""){
+                num1 = 0;
+            }
+            num1 = parseInt(num1);
+        }
+        operador = event.target.innerHTML;
+        paso = 2;
+        decimal = false;
+        document.getElementById("lcd-value").innerText = num2;
+
+    }
+    else if(paso == 3){
+        //Paso 3 y se pulsa operador, movemos el resultado al num1
+        if(isNaN(resultado)){
+            resultado = 0;
+        }
+        num1 = resultado;
+        decimal =false;
+        paso = 2;
+        num2 = "";
+        operador = event.target.innerHTML;
+        document.getElementById("lcd-value").innerText = num2;
+
+
+    }
+}
+
+function hacerDecimal(){
+    if(paso == 1 && decimal == false){
+        //Hacemos decimal el num1.
+        if(num1 == ""){
+            num1 = "0.";
+
+        }
+        else{
+            num1= num1+".";
+        }
+        document.getElementById("lcd-value").innerText = num1;
+        decimal = true;
+    }
+    else if(paso == 2 && decimal == false){
+        if(num2 == ""){
+            num2 = "0.";
+        }
+        else{
+            num2= num2+".";
+        }
+        document.getElementById("lcd-value").innerText = num2;
+        decimal = true;
+    }
+}
+
+function calcular(){
+    if(paso == 2){
+        if(decimal == true){
+            num2 = parseFloat(num2);
+        }
+        else{
+            if(num2 == ""){
+                num2 = 0;
+            }
+            num2 = parseInt(num2);
+        }
+        switch (operador){
             case "+":
-                num1 = num1 + num2;
+                resultado = num1+num2;
                 break;
             case "-":
-                num1 = num1 - num2;
+                resultado = num1-num2;
                 break;
-            case "*":
-                num1 = num1 * num2;
-                break;
+           case "*":
+                resultado = num1*num2;
+                break; 
             case "/":
-                if (num2 == 0) {
-                    alert("Error! Intento de División por 0");
-                    return; // Salir de la función si hay división por cero
-                } else {
-                    num1 = num1 / num2;
+                if(num2 == 0){
+                    resultado = "DIV/0!";
                 }
-                break;
+                else{
+                    resultado = num1/num2;
+                }
+                break;   
         }
-        document.getElementById("lcd-value").innerHTML = num1;
-        // Restablecer variables y estado
-        num2 = ""; // Restablecer num2 a una cadena vacía
-        operador = "";
+        document.getElementById("lcd-value").innerText = resultado;
         paso = 3;
     }
 }
-
