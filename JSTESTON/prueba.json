@@ -1,0 +1,112 @@
+[
+    {
+        "enunciado_pregunta": "¿Cuánto es 1+1?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "opcion_correcta": "2"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 2+2?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "opcion_correcta": "4"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 3+3?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "6"
+        ],
+        "opcion_correcta": "6"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 4+4?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "8"
+        ],
+        "opcion_correcta": "8"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 5+5?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "10"
+        ],
+        "opcion_correcta": "10"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 6+6?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "12"
+        ],
+        "opcion_correcta": "12"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 7+7?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "14"
+        ],
+        "opcion_correcta": "14"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 8+8?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "16"
+        ],
+        "opcion_correcta": "16"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 9+9?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "18"
+        ],
+        "opcion_correcta": "18"
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 10+10?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "20"
+        ],
+        "opcion_correcta": "20" 
+    },
+    {
+        "enunciado_pregunta": "¿Cuánto es 11+11?",
+        "opciones":[
+            "1",
+            "2",
+            "3",
+            "22"
+        ],
+        "opcion_correcta": "22"
+    }
+]

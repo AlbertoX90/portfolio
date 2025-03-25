@@ -1,0 +1,118 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Formulario de carga de test */
+#formContainer {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#formContainer input {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#formContainer button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#formContainer button:hover {
+    background-color: #45a049;
+}
+
+/* Contenedor de las preguntas */
+#testContainer {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: none; /* Por defecto oculto */
+}
+
+/* Estilos para las preguntas y respuestas */
+#testContainer p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.answerButton {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.answerButton:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor de resultados */
+#resultContainer {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    display: none; /* Por defecto oculto */
+    font-size: 1.2rem;
+    color: #333333; /* Cambié el verde a un gris oscuro */
+    border: 1px solid #ddd; /* Añadí un borde sutil */
+}
+
+/* Botón de reiniciar */
+#resetButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none; /* Oculto hasta que se inicie el test */
+}
+
+#resetButton:hover {
+    background-color: #d32f2f;
+}
+
